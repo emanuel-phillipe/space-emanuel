@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { WindowContext } from "../context/WindowContext"
-import { BirdIcon, GraduationCapIcon, InfoIcon, QuestionIcon, ReadCvLogoIcon, RocketLaunchIcon, TerminalIcon, TerminalWindowIcon, UserIcon } from "@phosphor-icons/react"
+import { BirdIcon, GraduationCapIcon, InfoIcon, QuestionIcon, ReadCvLogoIcon, RocketLaunchIcon, TerminalWindowIcon, UserIcon } from "@phosphor-icons/react"
 import LeftMenuIcon from "../components/LeftMenuIcon"
 import LeftMenuFooterIcon from "../components/LeftMenuFooterIcon"
 
