@@ -1,14 +1,14 @@
 import type { ReactNode } from "react"
 
-interface AbuttonSimpleProps {
+interface Desktop_IconButtonProps {
   icon: ReactNode,
   link: string,
 }
 
-function AButtonSimple({icon, link}:AbuttonSimpleProps) {
+function Desktop_IconButton({icon, link}:Desktop_IconButtonProps) {
   return (
     <button className="cursor-pointer hover:text-violet-400 transition-all"><a rel="noopener noreferrer" target="_blank" href={link}>{icon}</a></button>
   )
 }
 
-export default AButtonSimple
+export default Desktop_IconButton

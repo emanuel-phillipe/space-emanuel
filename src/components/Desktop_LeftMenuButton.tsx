@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from "react"
 
-interface ILeftMenuIconProps{
+interface IDesktop_LeftMenuButtonProps{
   icon: ReactNode,
   text: string,
   currentWindow: number,
@@ -8,7 +8,7 @@ interface ILeftMenuIconProps{
   whenClicked: (id: number) => void
 }
 
-function LeftMenuIcon({icon, text, currentWindow, id, whenClicked}:ILeftMenuIconProps) {
+function Desktop_LeftMenuButton({icon, text, currentWindow, id, whenClicked}:IDesktop_LeftMenuButtonProps) {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
@@ -19,4 +19,4 @@ function LeftMenuIcon({icon, text, currentWindow, id, whenClicked}:ILeftMenuIcon
   )
 }
 
-export default LeftMenuIcon
+export default Desktop_LeftMenuButton

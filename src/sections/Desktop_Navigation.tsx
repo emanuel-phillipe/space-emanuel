@@ -1,8 +1,8 @@
 import { useContext } from "react"
 import { WindowContext } from "../context/WindowContext"
 import { BirdIcon, GraduationCapIcon, InfoIcon, QuestionIcon, ReadCvLogoIcon, RocketLaunchIcon, TerminalWindowIcon, UserIcon } from "@phosphor-icons/react"
-import LeftMenuIcon from "../components/LeftMenuIcon"
-import LeftMenuFooterIcon from "../components/LeftMenuFooterIcon"
+import Desktop_LeftMenuButton from "../components/Desktop_LeftMenuButton"
+import Desktop_SecondaryButton from "../components/Desktop_SecondaryButton"
 
 const leftMenuIcons = [
   {
@@ -37,7 +37,7 @@ const leftMenuIcons = [
   }
 ]
 
-function HomeLeftCorner() {
+function Desktop_Navigation() {
   const windowContext = useContext(WindowContext)
 
   const handleLeftMenuClick = (id: number) => {
@@ -52,7 +52,7 @@ function HomeLeftCorner() {
           {
             leftMenuIcons.map((item, index) => {
               return (
-                <LeftMenuIcon whenClicked={handleLeftMenuClick} text={item.name} icon={item.icon} id={index} key={index} currentWindow={windowContext}/>
+                <Desktop_LeftMenuButton whenClicked={handleLeftMenuClick} text={item.name} icon={item.icon} id={index} key={index} currentWindow={windowContext}/>
               )
             })
           }
@@ -60,12 +60,12 @@ function HomeLeftCorner() {
       </div>
       <div>
         <ul className="w-max flex gap-4">
-          <LeftMenuFooterIcon icon={<TerminalWindowIcon size={22}/>} text="Terminal"/>
-          <LeftMenuFooterIcon icon={<BirdIcon size={22}/>} text="JadeAI"/>
+          <Desktop_SecondaryButton icon={<TerminalWindowIcon size={22}/>} text="Terminal"/>
+          <Desktop_SecondaryButton icon={<BirdIcon size={22}/>} text="JadeAI"/>
         </ul>
       </div>
     </div>
   )
 }
 
-export default HomeLeftCorner
+export default Desktop_Navigation

@@ -1,11 +1,11 @@
 import { type ReactNode } from 'react'
 
-interface ILeftMenuFooterIconProps{
+interface IDesktop_SecondaryButtonProps{
   icon: ReactNode
   text: string
 }
 
-function LeftMenuFooterIcon({icon, text}:ILeftMenuFooterIconProps) {
+function Desktop_SecondaryButton({icon, text}:IDesktop_SecondaryButtonProps) {
   return (
     <li className="flex items-center gap-2 px-5 py-2 rounded-full border border-zinc-800 text-zinc-600 hover:border-zinc-400 cursor-pointer hover:text-zinc-300 transition-all">
       {icon}
@@ -14,4 +14,4 @@ function LeftMenuFooterIcon({icon, text}:ILeftMenuFooterIconProps) {
   )
 }
 
-export default LeftMenuFooterIcon
+export default Desktop_SecondaryButton
