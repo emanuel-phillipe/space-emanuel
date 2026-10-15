@@ -1,15 +1,16 @@
+import { RouterProvider } from '@tanstack/react-router'
+import { router } from './router'
+import { ModalProvider } from './context/ModalContext'
+import { WindowManagerProvider } from './context/WindowManagerProvider'
 import './App.css'
-import Desktop from './device/Desktop'
-import Mobile from './device/Mobile'
 
 function App() {
-
-  const isMobile = window.innerWidth < 768
-
   return (
-    <div className='w-full h-screen p-10'>
-      {!isMobile ? <Desktop /> : <Mobile />}
-    </div>
+    <ModalProvider>
+      <WindowManagerProvider>
+        <RouterProvider router={router} />
+      </WindowManagerProvider>
+    </ModalProvider>
   )
 }
 

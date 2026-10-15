@@ -1,15 +1,28 @@
 import { type ReactNode } from 'react'
 
-interface IDesktop_SecondaryButtonProps{
+interface IDesktop_SecondaryButtonProps {
   icon: ReactNode
   text: string
+  onClick?: () => void
+  isActive?: boolean
 }
 
-function Desktop_SecondaryButton({icon, text}:IDesktop_SecondaryButtonProps) {
+function Desktop_SecondaryButton({ icon, text, onClick, isActive }: IDesktop_SecondaryButtonProps) {
   return (
-    <li className="flex items-center gap-2 px-5 py-2 rounded-full border border-zinc-800 text-zinc-600 hover:border-zinc-400 cursor-pointer hover:text-zinc-300 transition-all">
+    <li>
+    <button
+      type="button"
+      aria-pressed={!!isActive}
+      onClick={onClick}
+      className={`flex items-center gap-2.5 px-6 py-2.5 rounded-full border cursor-pointer transition-all ${
+        isActive
+          ? "border-violet-500/80 bg-zinc-900 text-violet-400 ring-1 ring-violet-500/30"
+          : "border-zinc-800 text-zinc-400 hover:border-zinc-600 hover:text-zinc-100"
+      }`}
+    >
       {icon}
-      <span className="font-semibold text-[0.9rem]">{text}</span>
+      <span className="font-semibold text-base font-poppins">{text}</span>
+    </button>
     </li>
   )
 }

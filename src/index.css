@@ -1,2 +1,107 @@
 @import "tailwindcss";
 @plugin "tailwindcss-motion";
+
+@theme {
+  --font-poppins: "Poppins", sans-serif;
+  --font-outfit: "Outfit", sans-serif;
+}
+
+/* Window movement lives on the outer frame; app launch/close transforms live on
+   the inner surface so animation never changes the pointer's drag coordinates. */
+.app-window-position {
+  --window-dock-space: 0px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  max-width: calc(100vw - 24px);
+  color: #f4f4f5;
+  isolation: isolate;
+}
+.app-window {
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100dvh - 24px - var(--window-dock-space));
+  overflow: hidden;
+  background: rgba(9, 9, 11, 0.97);
+  border: 1px solid #303038;
+  border-radius: 18px;
+  box-shadow: 0 24px 80px #0008, 0 4px 16px #0005;
+  transform-origin: 50% 80%;
+  transition: border-color 180ms, box-shadow 180ms;
+}
+.app-window-active {
+  border-color: #75608b;
+  box-shadow: 0 28px 100px #000a, 0 0 0 1px #a78bfa15;
+}
+.app-window-handle {
+  flex-shrink: 0;
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px;
+  border-bottom: 1px solid #27272a;
+  background: linear-gradient(110deg, #ffffff06, #a78bfa08);
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+.app-window-handle[data-dragging] { cursor: grabbing; }
+.app-window-handle:focus-visible { outline: 2px solid #a78bfa; outline-offset: -3px; }
+.app-window-title { flex: 1; text-align: center; font: 500 12px var(--font-poppins); color: #b8b4c2; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.app-window-grip { color: #71717a; font-size: 20px; line-height: 1; }
+.app-window-controls { display: flex; gap: 10px; flex-shrink: 0; }
+.window-dot { position: relative; width: 15px; height: 15px; display: grid; place-items: center; border-radius: 50%; color: #09090b; cursor: pointer; transition: filter 150ms; }
+.window-dot::after { content: ""; position: absolute; inset: -5px; }
+.window-dot-close { background: #fa6264; }
+.window-dot-minimize { background: #f3bd4f; }
+.window-dot-maximize { background: #38ca81; }
+.window-dot svg { opacity: 0; pointer-events: none; }
+.app-window-controls:hover svg, .window-dot:focus-visible svg { opacity: 1; }
+.window-dot:hover { filter: brightness(1.2); }
+.window-dot:focus-visible { outline: 2px solid white; outline-offset: 3px; }
+.app-window-content { flex: 1; min-height: 0; overflow: auto; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: #524362 transparent; }
+.app-window-content[hidden] { display: none; }
+.app-window-maximized { width: calc(100vw - 24px) !important; max-width: calc(100vw - 24px) !important; }
+.app-window-maximized > .app-window { height: calc(100dvh - 24px - var(--window-dock-space)); }
+.app-window-maximized .app-window-handle { cursor: default; }
+.open-detail-button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: fit-content; max-width: 100%; padding: 10px 14px; border: 1px solid #65518780; border-radius: 10px; background: linear-gradient(135deg, #8b5cf61a, #8b5cf608); color: #c4b5fd; font: 500 13px var(--font-outfit); cursor: pointer; text-align: left; transition: background 180ms, border-color 180ms, transform 180ms; }
+.open-detail-button:hover { background: #8b5cf629; border-color: #a78bfa; transform: translateY(-1px); }
+.open-detail-button:focus-visible, .experience-card:focus-visible, .detail-channel:focus-visible { outline: 2px solid #c4b5fd; outline-offset: 3px; }
+.open-detail-button svg { flex-shrink: 0; }
+.detail-content { padding: 26px; }
+.detail-heading { display: flex; align-items: center; gap: 14px; margin-bottom: 24px; }
+.detail-heading-icon { display: grid; place-items: center; width: 50px; height: 50px; flex-shrink: 0; border-radius: 14px; border: 1px solid #a78bfa33; background: #8b5cf615; color: #c4b5fd; }
+.detail-heading h2 { font: 600 21px var(--font-poppins); color: #fafafa; }
+.detail-kicker { display: block; font: 500 10px var(--font-poppins); letter-spacing: 0.08em; text-transform: uppercase; color: #b39bdc; margin-bottom: 5px; }
+.detail-groups { display: grid; gap: 12px; }
+.detail-panel { padding: 18px; border-radius: 12px; background: linear-gradient(135deg, #18181b, #121216); border: 1px solid #27272f; }
+.detail-panel h3, .detail-timeline h3 { color: #e4e4e7; font: 600 15px var(--font-outfit); margin-bottom: 10px; }
+.detail-panel p, .detail-timeline p, .detail-timeline li { font: 400 14px/1.75 var(--font-outfit); color: #a1a1aa; }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.skill-tags span { padding: 5px 10px; font: 400 12px var(--font-outfit); border-radius: 6px; border: 1px solid #a78bfa22; background: #a78bfa09; color: #ddd6eb; }
+.detail-timeline { border-left: 1px solid #a78bfa33; margin-left: 7px; padding-left: 24px; }
+.detail-timeline article { position: relative; padding-bottom: 26px; }
+.detail-timeline article::before { content: ""; width: 9px; height: 9px; position: absolute; left: -29px; top: 4px; border-radius: 50%; background: #a78bfa; box-shadow: 0 0 0 4px #181320; }
+.detail-timeline ul { display: grid; gap: 10px; list-style-type: disc; padding-left: 16px; }
+.detail-source { margin-top: 24px; padding-top: 16px; border-top: 1px solid #27272a; color: #a1a1aa; display: flex; gap: 10px; align-items: center; font: 400 12px var(--font-outfit); }
+.detail-source:hover { color: #c4b5fd; }
+.detail-footnote { color: #a1a1aa; font: 400 12px/1.7 var(--font-outfit); }
+.detail-channel { display: flex; align-items: center; gap: 16px; padding: 20px 16px; border-radius: 12px; border: 1px solid #3f3f46; color: #c4b5fd; font: 400 13px var(--font-outfit); overflow-wrap: anywhere; }
+.detail-channel svg { flex-shrink: 0; }
+.detail-channel span { display: grid; gap: 6px; }
+.detail-channel strong { color: #f4f4f5; font-weight: 500; }
+.detail-channel:hover { background: #8b5cf60f; border-color: #a78bfa; }
+.experience-card { width: 100%; display: flex; align-items: center; gap: 16px; padding: 16px; text-align: left; border: 1px solid #27272a; border-radius: 14px; background: #18181b60; transition: background 180ms, border-color 180ms; cursor: pointer; }
+.experience-card:hover { border-color: #8b5cf666; background: #8b5cf60a; }
+@media (min-width: 768px) { .app-window-primary { max-width: calc(100vw - 360px); } }
+@media (max-width: 767px) {
+  .app-window-position { --window-dock-space: 184px; }
+  .app-window-handle { padding: 14px 16px; gap: 12px; }
+  .app-window-content > section > div > div.px-8 { padding: 22px; }
+  .detail-content { padding: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .app-window, .open-detail-button, .experience-card, .window-dot { transition: none; }
+  .open-detail-button:hover { transform: none; }
+}
