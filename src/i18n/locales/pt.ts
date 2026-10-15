@@ -142,7 +142,7 @@ export const pt = {
     screenDesc: "aboutme.app",
     title: "Sobre Mim",
     subtitle: "Quem é Emanuel Phillipe?",
-    p1: "Me chamo Emanuel Phillipe Ribeiro Ferreira de Carvalho, tenho 19 anos e atualmente moro em Belo Horizonte - MG. Em 2020, início da pandemia, percebi que tinha aptidão e paixão por T.I. Com isso, comecei a estudar e interessar-me pela área de",
+    p1: "Me chamo Emanuel Phillipe Ribeiro Ferreira de Carvalho, tenho 20 anos e atualmente moro em Belo Horizonte - MG. Em 2020, início da pandemia, percebi que tinha aptidão e paixão por T.I. Com isso, comecei a estudar e interessar-me pela área de",
     p1Highlight: "desenvolvimento backend",
     p2: "Hoje, além de buscar certificações na área, estou cursando",
     p2Course: "Engenharia de Software",
@@ -188,7 +188,7 @@ export const pt = {
         detail: "Engenharia de Software",
         date: "fev. 2026 - dez. 2029 (previsão)",
       },
-      tfla: {
+      tfla: { 
         name: "TFLA Idiomas",
         detail: "Língua Inglesa (A1 à B2)",
         date: "jan. 2015 - dez. 2019",
@@ -272,7 +272,7 @@ export const pt = {
     helpOpen: "- open <app> Abre um aplicativo do sistema.",
     helpSelf: "- self <category> Cita características do dono da aplicação.",
     appNotFound: "App não encontrado: {{arg}}. Opções: sobre, info, formacoes, experiencia, curriculo, contato, home",
-    selfInfo: "Emanuel Phillipe: 19 anos, Desenvolvedor Backend / DevOps na Localiza&Co, graduando em Engenharia de Software na PUC-MG.",
+    selfInfo: "Emanuel Phillipe: 20 anos, Desenvolvedor Backend / DevOps na Localiza&Co, graduando em Engenharia de Software na PUC-MG.",
     helpListTitle: "Comandos disponíveis:",
     helpListOpen: "  open <app>      - Abre: sobre, info, formacoes, experiencia, curriculo, contato, home",
     helpListSelf: "  self <category> - Detalhes sobre Emanuel",

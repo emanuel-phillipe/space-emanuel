@@ -142,7 +142,7 @@ export const en = {
     screenDesc: "aboutme.app",
     title: "About Me",
     subtitle: "Who is Emanuel Phillipe?",
-    p1: "My name is Emanuel Phillipe Ribeiro Ferreira de Carvalho, I am 19 years old and currently live in Belo Horizonte - MG, Brazil. In 2020, at the start of the pandemic, I discovered my passion and aptitude for IT. Soon after, I began studying and focusing on",
+    p1: "My name is Emanuel Phillipe Ribeiro Ferreira de Carvalho, I am 20 years old and currently live in Belo Horizonte - MG, Brazil. In 2020, at the start of the pandemic, I discovered my passion and aptitude for IT. Soon after, I began studying and focusing on",
     p1Highlight: "backend development",
     p2: "Today, in addition to seeking industry certifications, I am studying",
     p2Course: "Software Engineering",
@@ -188,7 +188,7 @@ export const en = {
         detail: "Software Engineering",
         date: "Feb 2026 - Dec 2029 (expected)",
       },
-      tfla: {
+      tfla: { 
         name: "TFLA Idiomas",
         detail: "English Language (A1 to B2)",
         date: "Jan 2015 - Dec 2019",
@@ -272,7 +272,7 @@ export const en = {
     helpOpen: "- open <app> Opens a system application.",
     helpSelf: "- self <category> Details about the application owner.",
     appNotFound: "App not found: {{arg}}. Options: about, info, education, experience, cv, contact, home",
-    selfInfo: "Emanuel Phillipe: 19 years old, Backend / DevOps Developer at Localiza&Co, Software Engineering student at PUC-MG.",
+    selfInfo: "Emanuel Phillipe: 20 years old, Backend / DevOps Developer at Localiza&Co, Software Engineering student at PUC-MG.",
     helpListTitle: "Available commands:",
     helpListOpen: "  open <app>      - Opens: about, info, education, experience, cv, contact, home",
     helpListSelf: "  self <category> - Details about Emanuel",
